@@ -1,4 +1,4 @@
-# Happenings – Social Event Planner
+# Happenings – Event Finder
 
 ## Project Description
 
@@ -37,12 +37,14 @@ To set up and run this project, install the following:
    target/happenings.war
    ```
 
-4. Copy the WAR file into your Tomcat `webapps` directory.
+4. Deploy the WAR file to Tomcat webapps directory:
    Example (Windows):
 
    ```
    C:\Program Files\Apache Software Foundation\Tomcat 10\webapps
    ```
+
+   OR use Intellij Tomcat run configuration.
 
 5. Start the Tomcat server.
 
@@ -50,7 +52,7 @@ To set up and run this project, install the following:
 
 ## Testing
 
-To validate that the technology stack is working correctly:
+To validate the backend is working:
 
 1. Ensure Tomcat is running and the WAR file has been deployed.
 2. Open a web browser.
