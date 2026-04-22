@@ -1,22 +1,20 @@
 # Happenings – Event Finder
 
-## Project Description
+## Elevator Pitch
 
-Happenings is a full-stack web application designed to help users discover, create, and manage social events. The platform allows users to browse events, view event details, and interact with event data through a web-based interface. This project currently focuses on validating the backend technology stack using Java Servlets deployed on Apache Tomcat. Future development will include database integration, user authentication, and full event management features.
+Happenings is a full-stack web application that allows users to discover, create, and manage social events. The application is built using Java Servlets and deployed on Apache Tomcat. It currently focuses on validating backend functionality, including servlet routing, Maven builds, and server deployment. Future updates will expand the system into a complete event management platform with database integration, user accounts, and interactive event features.
 
 ---
 
-## Installation
+## Installation Instructions
 
-To set up and run this project, install the following:
+To set up and run this project locally, install the following:
 
-* Java JDK 17 or higher
-* Apache Maven
-* Apache Tomcat (version 10 or compatible)
+- Java JDK 17 or higher  
+- Apache Maven  
+- Apache Tomcat 10 or compatible version  
 
-> Note: A MySQL database is planned for future development but is **not required** to run the current version of this project.
-
-### Steps
+### Steps:
 
 1. Clone the repository:
 
@@ -31,37 +29,35 @@ To set up and run this project, install the following:
    mvn clean package
    ```
 
-3. After building, locate the generated WAR file:
+3. Locate the generated WAR file:
 
    ```
    target/happenings.war
    ```
 
-4. Deploy the WAR file to Tomcat webapps directory:
-   Example (Windows):
-
-   ```
-   C:\Program Files\Apache Software Foundation\Tomcat 10\webapps
-   ```
-
-   OR use Intellij Tomcat run configuration.
+4. Deploy the WAR file to Tomcat:
+- Copy it into:
+  ```
+  C:\Program Files\Apache Software Foundation\Tomcat 10\webapps
+  ```
+- OR deploy using IntelliJ Tomcat run configuration
 
 5. Start the Tomcat server.
 
 ---
 
-## Testing
+## Testing Instructions
 
-To validate the backend is working:
+To verify the backend is working correctly:
 
-1. Ensure Tomcat is running and the WAR file has been deployed.
+1. Ensure Tomcat is running and the application is deployed.
 2. Open a web browser.
-3. Navigate to the following URL:
+3. Navigate to:
 
    ```
    http://localhost:8080/happenings/test
    ```
-4. Expected output:
+### Expected output:
 
    ```
    Happenings backend is working!
@@ -75,7 +71,7 @@ If this message appears, it confirms that:
 
 ---
 
-## Usage
+## Running / Access Instructions
 
 Once the server is running, access the application at:
 
@@ -83,23 +79,23 @@ Once the server is running, access the application at:
 http://localhost:8080/happenings/test
 ```
 
-This endpoint verifies backend functionality. Future versions of the application will expand this into a complete event management system with features such as event creation, user accounts, and database integration.
+
+This endpoint is used to confirm that the backend is successfully deployed and responding. Future versions of the application will include additional endpoints for event browsing, creation, and user interaction.
 
 ---
 
 ## Release Notes
 
 Version v0.0.0 includes:
-
-* Initial Maven project setup
-* Basic servlet implementation (`/test` endpoint)
-* Successful deployment to Apache Tomcat
-* Validation of the core backend technology stack
+- Initial Maven project setup
+- Basic servlet implementation (`/test` endpoint)
+- Successful deployment to Apache Tomcat
+- Validation of full backend stack integration
 
 ---
 
 ## Notes
 
-* No database setup is required for this version.
-* This release is intended to validate that all core technologies integrate and run successfully.
-* The project can be built and run entirely from the command line without requiring an IDE.
+- No database setup is required for this version.
+- This project is intended to validate backend integration and deployment.
+- The application can be built and run entirely through Maven and Tomcat without requiring additional tools beyond an IDE..
