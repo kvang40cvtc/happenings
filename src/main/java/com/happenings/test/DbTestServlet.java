@@ -20,14 +20,22 @@ public class DbTestServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            String url = System.getenv("DB_URL");
-            String user = System.getenv("DB_USERNAME");
-            String pass = System.getenv("DB_PASSWORD");
+            // Railway variables
+            String host = System.getenv("MYSQLHOST");
+            String port = System.getenv("MYSQLPORT");
+            String db   = System.getenv("MYSQLDATABASE");
+            String user = System.getenv("MYSQLUSER");
+            String pass = System.getenv("MYSQLPASSWORD");
+
+            // Build JDBC URL
+            String url = "jdbc:mysql://" + host + ":" + port + "/" + db;
+
+            // 🔥 REQUIRED FIX
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection conn = DriverManager.getConnection(url, user, pass);
 
             out.println("Database connection successful!");
-
             conn.close();
 
         } catch (Exception e) {
