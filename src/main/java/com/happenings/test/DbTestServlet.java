@@ -29,8 +29,7 @@ public class DbTestServlet extends HttpServlet {
 
             // Build JDBC URL
             String url = "jdbc:mysql://" + host + ":" + port + "/" + db;
-
-            // 🔥 REQUIRED FIX
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection conn = DriverManager.getConnection(url, user, pass);
