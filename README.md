@@ -2,25 +2,36 @@
 
 ## Elevator Pitch
 
-Happenings is a full-stack web application that allows users to discover, create, and manage social events. The application is built using Java Servlets and deployed on Apache Tomcat. It currently focuses on validating backend functionality, including servlet routing, Maven builds, and server deployment. Future updates will expand the system into a complete event management platform with database integration, user accounts, and interactive event features.
+Happenings is a full-stack web application that allows users to discover, create, and manage social events. Built using Java Servlets and deployed on Apache Tomcat, the project demonstrates backend web development concepts including routing, Maven-based builds, and database integration. It connects to a cloud-hosted MySQL database (Railway) using environment variables configured in the server. The system serves as a foundation for a larger event management platform that will include user accounts, event creation, and interactive social features.
+
+---
+
+## Repository
+
+https://github.com/it-sd-capstone/capstone-project-infinite-loop
 
 ---
 
 ## Installation Instructions
 
-To set up and run this project locally, install the following:
+### Prerequisites
 
-- Java JDK 17 or higher  
-- Apache Maven  
-- Apache Tomcat 10 or compatible version  
+Make sure the following are installed:
 
-### Steps:
+- Java JDK 17 or higher
+- Apache Maven
+- Apache Tomcat 10+
+- Internet connection (required for Railway database access)
+
+---
+
+### Steps to Install
 
 1. Clone the repository:
 
    ```
-   git clone https://github.com/kvang40cvtc/happenings.git
-   cd happenings
+   git clone https://github.com/it-sd-capstone/capstone-project-infinite-loop.git
+   cd capstone-project-infinite-loop
    ```
 
 2. Build the project using Maven:
@@ -36,23 +47,24 @@ To set up and run this project locally, install the following:
    ```
 
 4. Deploy the WAR file to Tomcat:
-- Copy it into:
-  ```
-  C:\Program Files\Apache Software Foundation\Tomcat 10\webapps
-  ```
-- OR deploy using IntelliJ Tomcat run configuration
+   - Copy it into:
+     ```
+     C:\Program Files\Apache Software Foundation\Tomcat 10\webapps
+     ```
 
-5. Start the Tomcat server.
+   - OR deploy using IntelliJ Tomcat Run Configuration.
+
+5. Start Tomcat server.
 
 ---
 
 ## Testing Instructions
 
-To verify the backend is working correctly:
+Make sure Tomcat is running before testing endpoints.
 
-1. Ensure Tomcat is running and the application is deployed.
-2. Open a web browser.
-3. Navigate to:
+### 1. Backend Test
+
+Open browser:
 
    ```
    http://localhost:8080/happenings/test
@@ -62,40 +74,81 @@ To verify the backend is working correctly:
    ```
    Happenings backend is working!
    ```
+---
 
-If this message appears, it confirms that:
+### 2. Database Test
 
-* Java Servlets are functioning correctly
-* The application builds successfully with Maven
-* The project deploys and runs on Tomcat
+Open browser:
+
+```
+http://localhost:8080/happenings/db-test
+```
+Expected outcomes:
+
+- ✅ Database connection successful → system fully functional
+- ❌ Access denied → incorrect credentials or permissions issue
+- ❌ null:null error → missing environment variables in Tomcat
 
 ---
 
-## Running / Access Instructions
+## Access / Running Instructions
 
-Once the server is running, access the application at:
+After starting Tomcat:
+
+### Main application endpoint:
 
 ```
 http://localhost:8080/happenings/test
 ```
 
-
-This endpoint is used to confirm that the backend is successfully deployed and responding. Future versions of the application will include additional endpoints for event browsing, creation, and user interaction.
-
----
-
-## Release Notes
-
-Version v0.0.0 includes:
-- Initial Maven project setup
-- Basic servlet implementation (`/test` endpoint)
-- Successful deployment to Apache Tomcat
-- Validation of full backend stack integration
+### Database test endpoint:
+```
+http://localhost:8080/happenings/db-test
+```
 
 ---
 
-## Notes
+## Environment Variable Setup (Required for Database)
 
-- No database setup is required for this version.
-- This project is intended to validate backend integration and deployment.
-- The application can be built and run entirely through Maven and Tomcat without requiring additional tools beyond an IDE..
+In IntelliJ IDEA:
+
+Run → Edit Configurations → Tomcat Server → Startup/Connection
+
+Add the following environment variables:
+
+- MYSQLHOST = shuttle.proxy.rlwy.net
+- MYSQLPORT = 41554
+- MYSQLDATABASE = railway
+- MYSQLUSER = root
+- MYSQLPASSWORD = FcbZBsceyzkySTsgCroWIaApNjhdmnpl
+
+---
+
+## Build & Run Summary
+
+- Build: `mvn clean package`
+- Deploy: Tomcat webapps or IntelliJ configuration
+- Run: Start Tomcat server
+- Access:
+    - `/test` → backend verification
+    - `/db-test` → database verification
+
+---
+
+## Release Notes (v0.0.0)
+
+- Maven project initialized
+- Servlet backend implemented
+- Tomcat deployment configured
+- `/test` endpoint added
+- `/db-test` endpoint added for MySQL testing
+- Railway MySQL integration configured via environment variables
+
+---
+
+## Important Notes
+
+- Database connection requires correct Tomcat environment variables
+- Do NOT hardcode credentials in source code
+- Project uses a cloud-hosted MySQL database (Railway)
+- Local testing depends on proper server configuration
